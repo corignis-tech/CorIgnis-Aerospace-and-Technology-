@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Publications — CorIgnus Aerospace &amp; Technology</title>
+  <meta name="description" content="Architecture notes and conceptual whitepapers. Patent pending; disciplined scope and intent." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">CorIgnus <span>Aerospace &amp; Technology</span></div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html" aria-current="page">Publications</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Publications / Architecture</h1>
+
+    <section class="card">
+      <div class="kicker">Scope &amp; intent</div>
+      <h2>Disclaimer</h2>
+      <p>
+        Documents hosted or linked here are provided for <strong>conceptual and architectural discussion only</strong>.
+        They are not instructions for construction, operation, or replication of any system.
+      </p>
+      <p>
+        Materials may describe interfaces, modular structure, sequencing, and test framing at a high level.
+        <strong>No performance claims</strong> are made. Sensitive implementation details, operational parameters,
+        and proprietary control methods are intentionally excluded.
+      </p>
+      <p class="muted">
+        Patent pending. Nothing on this page constitutes a license or a public disclosure of trade secrets.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="kicker">Available documents</div>
+      <h2>PDF Library</h2>
+      <ul class="list">
+        <li>
+          <a href="docs/pemma-architecture-overview.pdf">PEMMA Architecture Overview</a>
+          <span class="muted"> — conceptual architecture framing</span>
+        </li>
+        <li class="muted">Additional publications — in development</li>
+      </ul>
+      <div class="hr"></div>
+      <p class="muted">
+        Tip: Place PDFs in <code>/docs</code> and link them with relative paths so they work on Cloudflare Pages.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footerline">
+      <div>© <span id="y"></span> CorIgnus Aerospace &amp; Technology</div>
+      <div class="muted">Conceptual documents only. Patent pending.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
