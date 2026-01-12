@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — CorIgnus Aerospace &amp; Technology</title>
+  <meta name="description" content="Project index for CorIgnus Aerospace & Technology. High-level summaries and conceptual documentation links." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">CorIgnus <span>Aerospace &amp; Technology</span></div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Projects</h1>
+    <p class="muted">
+      Summaries are intentionally high-level. Public materials avoid implementation details and do not make performance claims.
+    </p>
+
+    <section class="card">
+      <div class="kicker">Project</div>
+      <h2>PEMMA Drive <span class="badge">Patent pending</span></h2>
+      <p>
+        A conceptual, architecture-driven system family defined by modular subsystems and explicit interfaces.
+        Public documentation focuses on system framing and integration logic suitable for technical discussion,
+        without disclosing implementation details.
+      </p>
+
+      <div class="hr"></div>
+      <p>
+        <strong>PDF:</strong>
+        <a href="docs/pemma-architecture-overview.pdf">PEMMA Architecture Overview</a>
+        <span class="muted"> (conceptual document)</span>
+      </p>
+
+      <p class="muted">
+        Disclaimer: This document is provided for conceptual and architectural discussion only. It is not an
+        engineering build guide and does not disclose operational parameters or proprietary control methods.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="kicker">Future work</div>
+      <h2>In Development</h2>
+      <p class="muted">
+        Additional projects will appear here as they reach a shareable, non-sensitive architecture level.
+      </p>
+      <ul class="list">
+        <li>In Development — to be announced</li>
+        <li>In Development — to be announced</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footerline">
+      <div>© <span id="y"></span> CorIgnus Aerospace &amp; Technology</div>
+      <div class="muted">Public materials are conceptual; patent-first disclosure.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
