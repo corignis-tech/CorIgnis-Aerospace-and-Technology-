@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Updates • CorIgnis Aerospace & Technology</title>
+  <meta name="description" content="Public status updates and milestones for CorIgnis Aerospace & Technology." />
+
+  <style>
+    :root{
+      --bg0:#070A10;
+      --bg1:#0B1020;
+      --text:rgba(255,255,255,0.92);
+      --muted:rgba(255,255,255,0.72);
+      --faint:rgba(255,255,255,0.55);
+      --line:rgba(255,255,255,0.12);
+      --shadow: 0 16px 60px rgba(0,0,0,0.55);
+      --radius:18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(125,211,252,0.12), transparent 55%),
+        radial-gradient(1200px 900px at 90% 10%, rgba(167,139,250,0.10), transparent 55%),
+        radial-gradient(900px 700px at 50% 90%, rgba(52,211,153,0.06), transparent 50%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height:100vh;
+    }
+    a{color:inherit}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0 18px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+    .brand img{
+      width:44px; height:44px; object-fit:contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+    }
+    .brand .name{display:flex; flex-direction:column; line-height:1.1;}
+    .brand .name strong{font-size:14px; letter-spacing:0.2px;}
+    .brand .name span{font-size:12px; color:var(--muted);}
+
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    .navlink{
+      text-decoration:none;
+      font-size:13px;
+      color:var(--muted);
+      padding:10px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      transition: all 160ms ease;
+      background: rgba(255,255,255,0.02);
+    }
+    .navlink:hover{
+      color:var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+    .navlink.active{
+      color:var(--text);
+      border-color: rgba(125,211,252,0.35);
+      background: rgba(125,211,252,0.10);
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.05));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .inner{padding:22px;}
+    .kicker{
+      font-size:12px; letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--faint);
+    }
+    h1{margin:10px 0 10px 0; font-size:34px; line-height:1.1; letter-spacing:-0.02em;}
+    .lead{color:var(--muted); font-size:15px; line-height:1.6; margin:0; max-width:92ch;}
+
+    .note{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.18);
+      color: rgba(255,255,255,0.80);
+      font-size:12.5px;
+      line-height:1.55;
+    }
+
+    .timeline{margin-top:14px; display:grid; gap:12px;}
+    .entry{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap:14px;
+      padding:16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+    }
+    @media (max-width: 720px){
+      .entry{grid-template-columns: 1fr;}
+      nav{justify-content:flex-start;}
+    }
+    .date{
+      font-size:12px;
+      color: rgba(255,255,255,0.78);
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      padding-top:2px;
+    }
+    .entry h3{margin:0 0 6px 0; font-size:14px;}
+    .entry p{margin:0; color:var(--muted); font-size:13.5px; line-height:1.6;}
+    .tagrow{margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;}
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.16);
+      color: rgba(255,255,255,0.78);
+      white-space:nowrap;
+    }
+    .error{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,255,255,0.82);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    footer{
+      margin:24px 0 8px 0;
+      color: var(--faint);
+      font-size:12px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:space-between;
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding-top:16px;
+    }
+    .footerlinks{display:flex; gap:14px; flex-wrap:wrap;}
+    .footerlinks a{color:var(--faint); text-decoration:none;}
+    .footerlinks a:hover{color:var(--text); text-decoration:underline;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="index.html" aria-label="CorIgnis Home">
+        <img src="assets/img/logo.png" alt="CorIgnis logo" />
+        <div class="name">
+          <strong>CorIgnis Aerospace &amp; Technology</strong>
+          <span>Status • milestones • public updates</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="company.html">Company</a>
+        <a class="navlink" href="projects.html">Projects</a>
+        <a class="navlink" href="publications.html">Publications</a>
+        <a class="navlink active" href="updates.html">Updates</a>
+        <a class="navlink" href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <section class="card">
+      <div class="inner">
+        <div class="kicker">Updates</div>
+        <h1>Status &amp; Updates</h1>
+        <p class="lead">
+          Conservative, high-level updates for external visibility (peers, mentors, reviewers). This page avoids implementation
+          details and does not imply timelines or performance outcomes.
+        </p>
+
+        <div class="note" id="policyNote">
+          <strong>Update policy:</strong> entries are posted when they materially improve external clarity (new public documents,
+          meaningful portfolio changes, deployments, or verified milestones). This is not a real-time feed.
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline" id="timeline" aria-label="Updates timeline"></section>
+
+    <div class="error" id="errorBox" style="display:none;"></div>
+
+    <footer>
+      <div>© <span id="y"></span> CorIgnis Aerospace &amp; Technology. All rights reserved.</div>
+      <div class="footerlinks">
+        <a href="publications.html">Publications</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, s => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;"
+      }[s]));
+    }
+
+    function makeTag(tagText){
+      const t = document.createElement("div");
+      t.className = "tag";
+      t.textContent = tagText;
+      return t;
+    }
+
+    async function loadUpdates(){
+      const timeline = document.getElementById("timeline");
+      const errorBox = document.getElementById("errorBox");
+
+      try{
+        // Relative path (works on Cloudflare Pages)
+        const res = await fetch("data/updates.json", { cache: "no-store" });
+        if(!res.ok){
+          throw new Error(`Could not load data/updates.json (HTTP ${res.status})`);
+        }
+        const data = await res.json();
+        const updates = Array.isArray(data.updates) ? data.updates : [];
+
+        // Newest first (optional). Your file can be in any order.
+        // If you prefer manual ordering, delete the sort() line.
+        updates.sort((a,b) => String(b.date).localeCompare(String(a.date)));
+
+        if(updates.length === 0){
+          const empty = document.createElement("div");
+          empty.className = "error";
+          empty.textContent = "No public updates posted yet.";
+          timeline.appendChild(empty);
+          return;
+        }
+
+        for(const u of updates){
+          const entry = document.createElement("div");
+          entry.className = "entry";
+
+          const date = document.createElement("div");
+          date.className = "date";
+          date.textContent = u.date || "";
+
+          const body = document.createElement("div");
+
+          const h = document.createElement("h3");
+          h.textContent = u.title || "";
+
+          const p = document.createElement("p");
+          p.textContent = u.summary || "";
+
+          body.appendChild(h);
+          body.appendChild(p);
+
+          if(Array.isArray(u.tags) && u.tags.length){
+            const tagrow = document.createElement("div");
+            tagrow.className = "tagrow";
+            u.tags.forEach(t => tagrow.appendChild(makeTag(String(t))));
+            body.appendChild(tagrow);
+          }
+
+          entry.appendChild(date);
+          entry.appendChild(body);
+          timeline.appendChild(entry);
+        }
+      } catch(err){
+        errorBox.style.display = "block";
+        errorBox.innerHTML =
+          "<strong>Update feed error:</strong> " + escapeHtml(err.message) +
+          "<br><br>Check that <code>data/updates.json</code> exists and is valid JSON.";
+      }
+    }
+
+    loadUpdates();
+  </script>
+</body>
+</html>
