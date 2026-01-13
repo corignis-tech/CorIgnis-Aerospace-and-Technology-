@@ -2,71 +2,361 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects — CorIgnus Aerospace &amp; Technology</title>
-  <meta name="description" content="Project index for CorIgnus Aerospace & Technology. High-level summaries and conceptual documentation links." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects • CorIgnis Aerospace & Technology</title>
+  <meta name="description" content="CorIgnis project portfolio organized by development tiers: core technologies, near-term applied systems, expansion and infrastructure, and internal R&D." />
+
+  <link rel="stylesheet" href="assets/css/site.css" />
+
+  <style>
+    :root{
+      --bg0:#070A10;
+      --bg1:#0B1020;
+      --card:rgba(255,255,255,0.06);
+      --text:rgba(255,255,255,0.92);
+      --muted:rgba(255,255,255,0.72);
+      --faint:rgba(255,255,255,0.55);
+      --line:rgba(255,255,255,0.12);
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --shadow: 0 16px 60px rgba(0,0,0,0.55);
+      --radius:18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(125,211,252,0.12), transparent 55%),
+        radial-gradient(1200px 900px at 90% 10%, rgba(167,139,250,0.10), transparent 55%),
+        radial-gradient(900px 700px at 50% 90%, rgba(52,211,153,0.06), transparent 50%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0 18px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+    .brand img{
+      width:44px; height:44px; object-fit:contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+    }
+    .brand .name{display:flex; flex-direction:column; line-height:1.1;}
+    .brand .name strong{font-size:14px; letter-spacing:0.2px;}
+    .brand .name span{font-size:12px; color:var(--muted);}
+
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    .navlink{
+      text-decoration:none;
+      font-size:13px;
+      color:var(--muted);
+      padding:10px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      transition: all 160ms ease;
+      background: rgba(255,255,255,0.02);
+    }
+    .navlink:hover{
+      color:var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+    .navlink.active{
+      color:var(--text);
+      border-color: rgba(125,211,252,0.35);
+      background: rgba(125,211,252,0.10);
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.05));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .inner{padding:22px;}
+    .kicker{
+      font-size:12px; letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--faint);
+    }
+    h1{margin:10px 0 10px 0; font-size:34px; line-height:1.1; letter-spacing:-0.02em;}
+    .lead{color:var(--muted); font-size:15px; line-height:1.6; margin:0; max-width:92ch;}
+
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+    .pill{
+      font-size:12.5px;
+      color:rgba(255,255,255,0.82);
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.16);
+      padding:10px 12px;
+      border-radius: 999px;
+    }
+
+    .section{
+      margin-top:14px;
+      padding:18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+    }
+    .section h2{
+      margin:0 0 8px 0;
+      font-size:18px;
+      letter-spacing:-0.01em;
+    }
+    .section p, .section li{
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.65;
+    }
+    .section p{margin:0 0 10px 0;}
+    .project{margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.10);}
+    .project:first-of-type{margin-top:0; padding-top:0; border-top:none;}
+    .project h3{margin:0 0 6px 0; font-size:14px; color:rgba(255,255,255,0.92);}
+    .project .desc{margin:0;}
+
+    .callout{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.18);
+      color: rgba(255,255,255,0.80);
+      font-size:12.5px;
+      line-height:1.55;
+    }
+
+    footer{
+      margin:24px 0 8px 0;
+      color: var(--faint);
+      font-size:12px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:space-between;
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding-top:16px;
+    }
+    .footerlinks{display:flex; gap:14px; flex-wrap:wrap;}
+    .footerlinks a{color:var(--faint); text-decoration:none;}
+    .footerlinks a:hover{color:var(--text); text-decoration:underline;}
+  </style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">CorIgnus <span>Aerospace &amp; Technology</span></div>
-      <nav class="navlinks" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="projects.html" aria-current="page">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="contact.html">Contact</a>
+  <div class="wrap">
+    <!-- Top Navigation -->
+    <div class="topbar">
+      <a class="brand" href="index.html" aria-label="CorIgnis Home">
+        <img src="assets/img/logo.png" alt="CorIgnis logo" />
+        <div class="name">
+          <strong>CorIgnis Aerospace &amp; Technology</strong>
+          <span>Project portfolio • tiered roadmap framing</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="company.html">Company</a>
+        <a class="navlink active" href="projects.html">Projects</a>
+        <a class="navlink" href="publications.html">Publications</a>
+        <a class="navlink" href="updates.html">Updates</a>
+        <a class="navlink" href="contact.html">Contact</a>
       </nav>
     </div>
-  </header>
 
-  <main class="container">
-    <h1>Projects</h1>
-    <p class="muted">
-      Summaries are intentionally high-level. Public materials avoid implementation details and do not make performance claims.
-    </p>
-
+    <!-- Header -->
     <section class="card">
-      <div class="kicker">Project</div>
-      <h2>PEMMA Drive <span class="badge">Patent pending</span></h2>
-      <p>
-        A conceptual, architecture-driven system family defined by modular subsystems and explicit interfaces.
-        Public documentation focuses on system framing and integration logic suitable for technical discussion,
-        without disclosing implementation details.
-      </p>
+      <div class="inner">
+        <div class="kicker">Portfolio</div>
+        <h1>Project Portfolio</h1>
+        <p class="lead">
+          CorIgnis develops foundational propulsion, energy, intelligence, and advanced computing systems that enable
+          next-generation aerospace vehicles, habitats, and space infrastructure. Our work is organized into clear tiers
+          to reflect development focus, sequencing, and long-term vision.
+        </p>
 
-      <div class="hr"></div>
-      <p>
-        <strong>PDF:</strong>
-        <a href="docs/pemma-architecture-overview.pdf">PEMMA Architecture Overview</a>
-        <span class="muted"> (conceptual document)</span>
-      </p>
+        <div class="pillrow" aria-label="Portfolio notes">
+          <div class="pill">Tiering reflects focus &amp; sequencing, not parallel execution</div>
+          <div class="pill">Public descriptions are intentionally high-level</div>
+          <div class="pill">Detailed packages are prepared per submission pathway</div>
+        </div>
 
-      <p class="muted">
-        Disclaimer: This document is provided for conceptual and architectural discussion only. It is not an
-        engineering build guide and does not disclose operational parameters or proprietary control methods.
-      </p>
+        <div class="callout">
+          <strong>Tier definitions (stable framing):</strong>
+          Tier 1 covers enabling platforms that everything else depends on. Tier 2 covers near-term embodiments that
+          activate only after Tier 1 milestones. Tier 3 covers scaling, infrastructure, and long-horizon expansions.
+          “Personal / Internal R&amp;D” is exploratory interface and research work that informs future capability.
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <div class="kicker">Future work</div>
-      <h2>In Development</h2>
-      <p class="muted">
-        Additional projects will appear here as they reach a shareable, non-sensitive architecture level.
-      </p>
-      <ul class="list">
-        <li>In Development — to be announced</li>
-        <li>In Development — to be announced</li>
-      </ul>
-    </section>
-  </main>
+    <!-- =========================
+         YOUR CONTENT (PRESERVED)
+         ========================= -->
 
-  <footer>
-    <div class="container footerline">
-      <div>© <span id="y"></span> CorIgnus Aerospace &amp; Technology</div>
-      <div class="muted">Public materials are conceptual; patent-first disclosure.</div>
-    </div>
-  </footer>
+    <!-- Tier 1 -->
+    <section class="section" style="margin-top:14px;">
+      <h2>Tier 1 — Core Technologies</h2>
+      <p><strong>Tier 1 projects are the foundational propulsion, energy, and intelligence platforms that enable all other CorIgnis systems. These technologies are developed independently and form the technical backbone for vehicles, habitats, and infrastructure.</strong></p>
+
+      <div class="project">
+        <h3>PEMMA Drive</h3>
+        <p class="desc">The Plasma Excited Microwave Magnetically Accelerated (PEMMA) Drive is an advanced propulsion system utilizing solid-core plasma excitation, magnetic acceleration, and integrated energy recovery. Designed for both atmospheric and space environments, PEMMA serves as a flexible propulsion foundation without relying on sustained nuclear fusion.</p>
+      </div>
+
+      <div class="project">
+        <h3>Aetheris AI</h3>
+        <p class="desc">Aetheris is the primary artificial intelligence architecture developed to support engineering reasoning, system management, mission support, and long-term autonomous operation across vehicles, habitats, and infrastructure.</p>
+      </div>
+
+      <div class="project">
+        <h3>Solena</h3>
+        <p class="desc">Solena is a laboratory and test-environment AI assistant focused on diagnostics, instrumentation control, data analysis, and experimental support, enabling rapid iteration and structured experimentation.</p>
+      </div>
+
+      <div class="project">
+        <h3>Arc Generator / FrigIgnis Core</h3>
+        <p class="desc">An experimental energy generation and management platform designed to support high-energy propulsion systems, advanced computing, and future infrastructure through scalable energy handling and distribution.</p>
+      </div>
+    </section>
+
+    <!-- Tier 2 -->
+    <section class="section">
+      <h2>Tier 2 — Near-Term Applied Systems (Milestone-Gated)</h2>
+      <p><strong>Tier 2 projects represent near-term systems and environments that advance once key Tier 1 propulsion, energy, and intelligence milestones are achieved. These efforts focus on the first practical embodiments, enabling environments, and platform integrations that translate validated core technologies into operational capability.</strong></p>
+
+      <div class="project">
+        <h3>Hermes Line (Class A Spacecraft)</h3>
+        <p class="desc">The Hermes Line is a compact spacecraft family designed for crewed or autonomous operation, supporting transport, logistics, rescue, and orbital missions as the first integrated vehicle platform.</p>
+      </div>
+
+      <div class="project">
+        <h3>Extraterrestrial Modular Habitat System</h3>
+        <p class="desc">A modular off-world habitat construction system leveraging reusable form structures and locally sourced materials to enable durable, scalable habitation in extraterrestrial environments.</p>
+      </div>
+
+      <div class="project">
+        <h3>Doped Crystalline Environment (DCE)</h3>
+        <p class="desc">A structured, doped material environment designed to allow computing systems to be written directly into a crystalline medium, enabling non-traditional and embedded computation architectures.</p>
+      </div>
+
+      <div class="project">
+        <h3>AI Acceleration–Focused Chip</h3>
+        <p class="desc">A general-purpose AI acceleration processor architecture designed to optimize performance per watt across a wide range of artificial intelligence workloads, from consumer devices to embedded and space-based systems.</p>
+      </div>
+
+      <div class="project">
+        <h3>AI TPU with Integrated Modular Accelerators</h3>
+        <p class="desc">A specialized tensor processing unit architecture incorporating modular, reconfigurable accelerator blocks optimized for machine learning inference, training support, and real-time autonomous decision-making.</p>
+      </div>
+    </section>
+
+    <!-- Tier 3 -->
+    <section class="section">
+      <h2>Tier 3 — Expansion, Scale &amp; Infrastructure</h2>
+      <p><strong>Tier 3 projects scale validated systems into larger vehicles, infrastructure, and manufacturing capabilities intended for sustained operations and long-duration missions.</strong></p>
+
+      <div class="project">
+        <h3>Class B Spacecraft</h3>
+        <p class="desc">A medium-class spacecraft platform designed for extended missions, interplanetary transport, and higher-capacity payload operations.</p>
+      </div>
+
+      <div class="project">
+        <h3>Class C Spacecraft</h3>
+        <p class="desc">A large multi-mission spacecraft intended for long-duration missions, surface operations, transport, and mobile base or habitation roles.</p>
+      </div>
+
+      <div class="project">
+        <h3>Aetheris Station</h3>
+        <p class="desc">A substation-scale orbital or deep-space platform designed to support long-duration operations, logistics, research, and mission staging.</p>
+      </div>
+
+      <div class="project">
+        <h3>Orbital Manufacturing Center (OMC)</h3>
+        <p class="desc">A space-based fabrication and assembly facility supporting the construction, integration, and servicing of spacecraft, orbital platforms, satellites, and modular habitats.</p>
+      </div>
+
+      <div class="project">
+        <h3>Modular Habitat System</h3>
+        <p class="desc">A scalable habitat architecture designed for deployment in orbital, low-atmosphere, or surface environments with integrated life-support and infrastructure compatibility.</p>
+      </div>
+
+      <div class="project">
+        <h3>Phoenix Jet</h3>
+        <p class="desc">A high-speed, multi-role atmospheric and near-space vehicle designed for rapid transport, insertion, recovery, and specialized mission support.</p>
+      </div>
+
+      <div class="project">
+        <h3>Fighter Jet</h3>
+        <p class="desc">An advanced tactical aircraft concept developed as a research and systems-integration platform for high-agility atmospheric flight, propulsion experimentation, and next-generation avionics architectures.</p>
+      </div>
+
+      <div class="project">
+        <h3>Simulation &amp; Visualization Engine Cube (SVEC)</h3>
+        <p class="desc">A compact computation and visualization core capable of real-time and accelerated multi-physics simulation with volumetric output for engineering analysis and mission planning.</p>
+      </div>
+    </section>
+
+    <!-- Personal / Internal -->
+    <section class="section">
+      <h2>Personal / Internal R&amp;D — Interfaces &amp; Advanced Research</h2>
+      <p><strong>These projects support internal research, human–machine interaction, and long-horizon exploration. They are not core commercial programs but inform and mature future capabilities.</strong></p>
+
+      <div class="project">
+        <h3>Ignis Watch</h3>
+        <p class="desc">An AI-enabled wearable platform designed for health monitoring, situational awareness, and system interaction. Ignis Watch serves as a testbed for low-power AI integration, biometric sensing, and human–machine interface concepts.</p>
+      </div>
+
+      <div class="project">
+        <h3>Falcon Suit</h3>
+        <p class="desc">An advanced personal mobility and flight research system integrating micro-propulsion, adaptive structures, and neural control interfaces. The Falcon Suit explores human-scale propulsion, stabilization, and wearable thermal management concepts.</p>
+      </div>
+
+      <div class="project">
+        <h3>MR Glasses</h3>
+        <p class="desc">Mixed-reality glasses designed to provide heads-up visualization, spatial overlays, and real-time system interaction. This platform supports research into augmented perception, field operations, and hands-free human–system coordination.</p>
+      </div>
+
+      <div class="project">
+        <h3>VR Headset</h3>
+        <p class="desc">An immersive virtual reality interface developed for simulation, training, visualization, and remote system interaction. The VR platform supports mission rehearsal, engineering visualization, and complex system walkthroughs.</p>
+      </div>
+
+      <div class="project">
+        <h3>Inductive Ear Ring Audio Device</h3>
+        <p class="desc">A low-power, induction-based personal audio interface designed for seamless use across wearables, vehicles, habitats, and work environments. The device explores discreet audio delivery and always-available personal communication.</p>
+      </div>
+
+      <div class="project">
+        <h3>Personal Security Slates</h3>
+        <p class="desc">Compact identity and credential devices designed to serve as personal root-of-trust nodes. These slates explore secure identity management, permissions, and personal data handling across interconnected systems.</p>
+      </div>
+
+      <div class="project">
+        <h3>Volumetric Maintenance Tablet</h3>
+        <p class="desc">An advanced diagnostic and maintenance interface supporting simulation-assisted troubleshooting, system visualization, and guided repair workflows for complex vehicles and infrastructure.</p>
+      </div>
+
+      <div class="project">
+        <h3>Aetheris Quantum Neural Mesh Upgrade</h3>
+        <p class="desc">An exploratory internal research effort investigating advanced neural architectures, distributed reasoning frameworks, and next-generation learning models intended to enhance adaptability and long-term cognitive evolution in AI systems.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> CorIgnis Aerospace &amp; Technology. All rights reserved.</div>
+      <div class="footerlinks">
+        <a href="company.html">Company</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+  </div>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
