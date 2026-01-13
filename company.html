@@ -149,4 +149,145 @@
       padding-top:16px;
     }
     .footerlinks{display:flex; gap:14px; flex-wrap:wrap;}
-    .footerlinks a{color:var(--faint);
+    .footerlinks a{color:var(--faint); text-decoration:none;}
+    .footerlinks a:hover{color:var(--text); text-decoration:underline;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- Top Navigation -->
+    <div class="topbar">
+      <a class="brand" href="index.html" aria-label="CorIgnis Home">
+        <img src="assets/img/logo.png" alt="CorIgnis logo" />
+        <div class="name">
+          <strong>CorIgnis Aerospace &amp; Technology</strong>
+          <span>Company overview • public materials policy • founder bio</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink active" href="company.html">Company</a>
+        <a class="navlink" href="projects.html">Projects</a>
+        <a class="navlink" href="publications.html">Publications</a>
+        <a class="navlink" href="updates.html">Updates</a>
+        <a class="navlink" href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Company overview -->
+    <section class="card">
+      <div class="inner">
+        <div class="kicker">Company</div>
+        <h1>CorIgnis Aerospace &amp; Technology</h1>
+        <p class="lead">
+          CorIgnus is a deep-tech effort developing foundational systems across propulsion, energy handling, autonomy,
+          and advanced computing. Our public-facing materials prioritize clarity, testability, and architecture framing,
+          while avoiding sensitive implementation details.
+        </p>
+
+        <div class="grid">
+          <div class="tile">
+            <h3>Mission</h3>
+            <p>
+              Build scalable enabling technologies that support next-generation aerospace vehicles, habitats, and space
+              infrastructure—while maintaining disciplined sequencing, risk-aware engineering, and responsible disclosure.
+            </p>
+          </div>
+
+          <div class="tile">
+            <h3>What “Aerospace &amp; Technology” means here</h3>
+            <p>
+              Aerospace is a primary application domain, but the underlying work spans deep tech:
+              energy systems, autonomy, advanced computing, and human–system interfaces that can serve multiple sectors.
+            </p>
+          </div>
+
+          <div class="tile">
+            <h3>Public materials policy</h3>
+            <ul>
+              <li>Informational only (no product sales or solicitation).</li>
+              <li>High-level architecture, sequencing, and capability framing.</li>
+              <li>No proprietary control methods, detailed geometries, or experimental parameters.</li>
+              <li>Program-specific details shared via appropriate process and protections.</li>
+            </ul>
+          </div>
+
+          <div class="tile">
+            <h3>For grants, investors, and reviewers</h3>
+            <p>
+              This site is designed to be stable over time: clear scope, portfolio structure, and externally visible
+              updates. Where deeper technical evidence is required, materials can be provided in the expected format
+              for the relevant submission pathway.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Note:</strong> This website deliberately separates “public overview” from “submission-ready detail.”
+          Public pages remain consistent and conservative; deeper documentation is prepared per opportunity (grant,
+          SBIR/STTR, investor diligence, or collaboration) under appropriate handling.
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="projects.html">View project portfolio</a>
+          <a class="btn" href="updates.html">See status &amp; updates</a>
+          <a class="btn" href="contact.html">Contact / request pitch deck</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder bio -->
+    <section class="card" style="margin-top:14px;">
+      <div class="inner">
+        <div class="kicker">Founder</div>
+        <h2 style="margin:10px 0 8px 0; font-size:22px;">Giovanni “Gio” German</h2>
+        <p class="lead" style="font-size:14px; max-width:90ch;">
+          Gio is the founder of CorIgnis Aerospace &amp; Technology. His focus is disciplined system development across
+          propulsion, energy, AI, and advanced computing—balancing patent-first protection with selective public materials
+          that support credible evaluation, peer feedback, and funding pathways.
+        </p>
+
+        <div class="grid" style="margin-top:14px;">
+          <div class="tile">
+            <h3>Approach</h3>
+            <ul>
+              <li>Architecture first: interfaces, sequencing, integration logic, testability</li>
+              <li>Milestone-gated development: focus tiers with clear progression</li>
+              <li>Evidence-driven iteration: prototypes, measurements, and refinement</li>
+            </ul>
+          </div>
+
+          <div class="tile">
+            <h3>Public posture</h3>
+            <ul>
+              <li>Conservative claims and careful wording</li>
+              <li>Publish what’s useful for review without exposing protected details</li>
+              <li>Separate “portfolio overview” from “submission packages”</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="contact.html">Email &amp; LinkedIn</a>
+          <a class="btn" href="publications.html">Public documents</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> CorIgnis Aerospace &amp; Technology. All rights reserved.</div>
+      <div class="footerlinks">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
