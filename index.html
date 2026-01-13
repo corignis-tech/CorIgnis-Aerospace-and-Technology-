@@ -2,78 +2,352 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CorIgnus Aerospace &amp; Technology</title>
-  <meta name="description" content="Architecture-driven aerospace systems. Patent-first, disciplined conceptual publications." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CorIgnis Aerospace & Technology</title>
+  <meta name="description" content="CorIgnis Aerospace & Technology develops deep-tech systems across propulsion, energy, autonomy, and advanced computing—published with disciplined scope and restraint." />
+
+  <!-- Optional: if you already have a site stylesheet, keep it.
+       If this path is wrong, it's fine—the built-in CSS below handles styling. -->
+  <link rel="stylesheet" href="assets/css/site.css" />
+
+  <style>
+    :root{
+      --bg0:#070A10;
+      --bg1:#0B1020;
+      --card:rgba(255,255,255,0.06);
+      --card2:rgba(255,255,255,0.08);
+      --text:rgba(255,255,255,0.92);
+      --muted:rgba(255,255,255,0.72);
+      --faint:rgba(255,255,255,0.55);
+      --line:rgba(255,255,255,0.12);
+      --accent:#7dd3fc;   /* light blue */
+      --accent2:#a78bfa;  /* violet */
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --radius:18px;
+      --shadow: 0 16px 60px rgba(0,0,0,0.55);
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(125,211,252,0.12), transparent 55%),
+        radial-gradient(1200px 900px at 90% 10%, rgba(167,139,250,0.10), transparent 55%),
+        radial-gradient(900px 700px at 50% 90%, rgba(52,211,153,0.06), transparent 50%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0 18px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
+    }
+    .brand img{
+      width:44px; height:44px; object-fit:contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+    }
+    .brand .name{
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .brand .name strong{font-size:14px; letter-spacing:0.2px;}
+    .brand .name span{font-size:12px; color:var(--muted);}
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .navlink{
+      text-decoration:none;
+      font-size:13px;
+      color:var(--muted);
+      padding:10px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      transition: all 160ms ease;
+      background: rgba(255,255,255,0.02);
+    }
+    .navlink:hover{
+      color:var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:8px;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr;}
+      nav{justify-content:flex-start;}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.05));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .inner{padding:22px;}
+    .kicker{
+      font-size:12px; letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--faint);
+    }
+    h1{
+      margin:10px 0 10px 0;
+      font-size:44px; line-height:1.05;
+      letter-spacing:-0.02em;
+    }
+    @media (max-width: 520px){
+      h1{font-size:34px;}
+    }
+    .lead{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.55;
+      margin:0;
+      max-width:62ch;
+    }
+    .pillrow{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:14px;
+    }
+    .pill{
+      font-size:12px;
+      color:rgba(255,255,255,0.82);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.03);
+      white-space:nowrap;
+    }
+    .cta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      font-size:13px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color:var(--text);
+      transition: all 160ms ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,0.07);}
+    .btn.primary{
+      border-color: rgba(125,211,252,0.35);
+      background: linear-gradient(180deg, rgba(125,211,252,0.18), rgba(125,211,252,0.08));
+    }
+    .btn.secondary{
+      border-color: rgba(167,139,250,0.35);
+      background: linear-gradient(180deg, rgba(167,139,250,0.16), rgba(167,139,250,0.08));
+    }
+
+    .sideStack{display:grid; gap:14px; height:100%;}
+    .mini{
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding:16px;
+    }
+    .mini h3{margin:0 0 8px 0; font-size:14px;}
+    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.5;}
+    .mini ul{margin:10px 0 0 18px; padding:0; color:var(--muted); font-size:13px; line-height:1.55;}
+    .note{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.78);
+      font-size:12px;
+      line-height:1.45;
+      background: rgba(0,0,0,0.18);
+    }
+
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr;} }
+    .tile{
+      padding:18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+    .tile h4{margin:0 0 8px 0; font-size:14px;}
+    .tile p{margin:0; color:var(--muted); font-size:13px; line-height:1.55;}
+
+    footer{
+      margin:24px 0 8px 0;
+      color: var(--faint);
+      font-size:12px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:space-between;
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding-top:16px;
+    }
+    .footerlinks{display:flex; gap:14px; flex-wrap:wrap;}
+    .footerlinks a{color:var(--faint); text-decoration:none;}
+    .footerlinks a:hover{color:var(--text); text-decoration:underline;}
+  </style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">CorIgnus <span>Aerospace &amp; Technology</span></div>
-      <nav class="navlinks" aria-label="Primary">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="contact.html">Contact</a>
+  <div class="wrap">
+    <!-- Top Navigation -->
+    <div class="topbar">
+      <a class="brand" href="index.html" aria-label="CorIgnis Home">
+        <img src="assets/img/logo.png" alt="CorIgnis logo" />
+        <div class="name">
+          <strong>CorIgnis Aerospace &amp; Technology</strong>
+          <span>Deep-tech systems • disciplined scope • public-facing restraint</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="company.html">Company</a>
+        <a class="navlink" href="projects.html">Projects</a>
+        <a class="navlink" href="publications.html">Publications</a>
+        <a class="navlink" href="updates.html">Updates</a>
+        <a class="navlink" href="contact.html">Contact</a>
       </nav>
     </div>
-  </header>
 
-  <main class="container">
+    <!-- Hero / Cover -->
     <section class="hero">
-      <div class="kicker">Architecture-driven aerospace systems</div>
-      <h1>Modular system architectures, documented with restraint.</h1>
+      <div class="card">
+        <div class="inner">
+          <div class="kicker">Aerospace + Deep Technology</div>
+          <h1>Focused systems, built to scale—published responsibly.</h1>
 
-      <p>
-        CorIgnus Aerospace &amp; Technology is an early-stage deep-tech effort focused on the
-        <strong>architectural design</strong> of modular, field-mediated aerospace systems.
-        Our work emphasizes interfaces, sequencing, integration logic, and testability.
-      </p>
+          <p class="lead">
+            CorIgnis Aerospace &amp; Technology is an early-stage deep-tech effort developing foundational systems across
+            propulsion, energy, autonomy, and advanced computing. We publish selective high-level material intended for
+            peer review, collaboration, and stakeholder evaluation—without exposing implementation details.
+          </p>
 
-      <p>
-        We operate <strong>patent-first</strong> and publish selective high-level materials intended for
-        technical peer review and responsible discussion. Public documents avoid implementation details.
-      </p>
+          <div class="pillrow" aria-label="Focus areas">
+            <div class="pill">Propulsion &amp; energy systems</div>
+            <div class="pill">AI &amp; autonomy architectures</div>
+            <div class="pill">Advanced computing paradigms</div>
+            <div class="pill">Space systems &amp; infrastructure</div>
+          </div>
 
-      <p class="muted">
-        This site is informational only. No product sales. No solicitation. No performance claims.
-      </p>
+          <div class="cta">
+            <a class="btn primary" href="projects.html">View project portfolio</a>
+            <a class="btn secondary" href="publications.html">Read publications</a>
+            <a class="btn" href="contact.html">Contact / pitch deck request</a>
+          </div>
+
+          <div class="note">
+            <strong>Public site policy:</strong> informational only. No product sales. No solicitation.
+            Public materials avoid proprietary control methods, detailed geometries, and experimental parameters.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: grant/investor safe panels -->
+      <div class="sideStack">
+        <div class="mini">
+          <h3>For grants &amp; funding reviewers</h3>
+          <p>
+            This website is designed to provide a stable, review-friendly overview of scope, sequencing, and progress.
+            Program-specific details can be shared under appropriate process and protections.
+          </p>
+          <ul>
+            <li>Clear portfolio tiers and focus sequencing</li>
+            <li>Public-facing summaries + architecture framing</li>
+            <li>Updates log for external visibility</li>
+          </ul>
+        </div>
+
+        <div class="mini">
+          <h3>For peers &amp; collaborators</h3>
+          <p>
+            We welcome responsible technical discussion and feedback. Public documents frame interfaces, testability,
+            and integration logic while keeping sensitive implementation details private.
+          </p>
+        </div>
+
+        <div class="mini">
+          <h3>Quick links</h3>
+          <ul>
+            <li><a href="projects.html">Project tiers &amp; portfolio</a></li>
+            <li><a href="updates.html">Status &amp; updates</a></li>
+            <li><a href="contact.html">Contact + pitch deck request</a></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <div class="grid">
-      <section class="card half">
-        <div class="kicker">Approach</div>
-        <h2>Disciplined scope</h2>
-        <ul class="list">
-          <li>Architecture and interfaces over hardware specifics</li>
-          <li>Modularity and extensibility over one-off designs</li>
-          <li>Test methodology and instrumentation readiness</li>
-          <li>Clear documentation boundaries and disclaimers</li>
-        </ul>
-      </section>
-
-      <section class="card half">
-        <div class="kicker">Status</div>
-        <h2>Early stage</h2>
+    <!-- What we do: stable domains (not “we built X”) -->
+    <section class="grid" aria-label="Capability domains">
+      <div class="tile">
+        <h4>Propulsion &amp; Energy</h4>
         <p>
-          Primary public material currently includes architecture-level PDFs and conceptual documents.
-          Additional projects will be posted as they reach a shareable level.
+          Research and development of modular propulsion and energy-handling systems intended to enable aerospace vehicles
+          and future space operations.
         </p>
-        <div class="hr"></div>
-        <span class="badge">Patent pending</span>
-        <span class="badge">Conceptual publications</span>
-        <span class="badge">No performance claims</span>
-      </section>
-    </div>
-  </main>
+      </div>
+      <div class="tile">
+        <h4>AI Systems &amp; Autonomy</h4>
+        <p>
+          Engineering reasoning, system management, and long-horizon autonomy architectures designed for demanding
+          operational environments.
+        </p>
+      </div>
+      <div class="tile">
+        <h4>Advanced Computing &amp; Interfaces</h4>
+        <p>
+          Exploration of efficient compute, embedded intelligence, and human–system interfaces for simulation,
+          diagnostics, and mission support.
+        </p>
+      </div>
+    </section>
 
-  <footer>
-    <div class="container footerline">
-      <div>© <span id="y"></span> CorIgnus Aerospace &amp; Technology</div>
-      <div class="muted">Architecture-first. Patent-first. Disciplined disclosure.</div>
-    </div>
-  </footer>
+    <!-- Founder bio preview (short) -->
+    <section class="card" style="margin-top:14px;">
+      <div class="inner">
+        <div class="kicker">Founder</div>
+        <h2 style="margin:10px 0 8px 0; font-size:22px;">Giovanni “Gio” German</h2>
+        <p class="lead" style="font-size:14px; max-width:80ch;">
+          Founder of CorIgnis Aerospace &amp; Technology. Focused on disciplined system development across propulsion,
+          energy, AI, and advanced computing—balancing patent-first protection with selective public materials for
+          credible peer, grant, and stakeholder evaluation.
+        </p>
+        <div class="cta" style="margin-top:14px;">
+          <a class="btn" href="company.html">Read company &amp; founder bio</a>
+          <a class="btn" href="contact.html">Connect on LinkedIn / email</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> CorIgnis Aerospace &amp; Technology. All rights reserved.</div>
+      <div class="footerlinks">
+        <a href="publications.html">Publications</a>
+        <a href="updates.html">Updates</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+  </div>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
