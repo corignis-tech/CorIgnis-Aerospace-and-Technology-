@@ -1,0 +1,27 @@
+{
+  "site": {
+    "updated_utc": "2026-01-13T00:00:00Z",
+    "note": "Public documents are intentionally high-level."
+  },
+  "disclaimer": {
+    "title": "Scope & Intent",
+    "bullets": [
+      "These documents are conceptual and architecture-oriented.",
+      "They are shared for peer discussion, grant/program submissions, and early stakeholder evaluation.",
+      "They do not disclose implementation details, control methods, detailed geometries, or experimental parameters.",
+      "Certain work is patent pending; public releases are conservative by design.",
+      "Nothing here should be interpreted as a performance claim, guarantee, timeline commitment, or offer to sell."
+    ]
+  },
+  "publications": [
+    {
+      "title": "PEMMA Architecture Overview",
+      "type": "PDF",
+      "status": "Public (high-level)",
+      "date": "2026-01",
+      "version": "v1.0",
+      "path": "docs/PEMMA-Architecture-Overview.pdf",
+      "notes": "Architecture framing only. Patent-first disclosure posture."
+    }
+  ]
+}
