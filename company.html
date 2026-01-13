@@ -6,7 +6,8 @@
   <title>Company • CorIgnis Aerospace & Technology</title>
   <meta name="description" content="CorIgnis Aerospace & Technology company overview, mission, public materials policy, and founder bio." />
 
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <!-- FIXED: correct stylesheet path -->
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 
   <style>
     :root{
@@ -156,12 +157,15 @@
 
 <body>
   <div class="wrap">
-    <!-- Top Navigation -->
     <div class="topbar">
-      <a class="brand" href="index.html" aria-label="CorIgnis Home">
-        <img src="assets/images/corignis-logo.png"
-     alt="CorIgnis Aerospace & Technology logo"
-     class="site-logo">
+      <a class="brand" href="/index.html" aria-label="CorIgnis Home">
+        <img
+          src="/assets/images/corignis-logo.png"
+          alt="CorIgnis Aerospace & Technology logo"
+          class="site-logo"
+          loading="eager"
+          onerror="this.style.display='none';"
+        >
         <div class="name">
           <strong>CorIgnis Aerospace &amp; Technology</strong>
           <span>Company overview • public materials policy • founder bio</span>
@@ -169,22 +173,21 @@
       </a>
 
       <nav aria-label="Primary navigation">
-        <a class="navlink" href="index.html">Home</a>
-        <a class="navlink active" href="company.html">Company</a>
-        <a class="navlink" href="projects.html">Projects</a>
-        <a class="navlink" href="publications.html">Publications</a>
-        <a class="navlink" href="updates.html">Updates</a>
-        <a class="navlink" href="contact.html">Contact</a>
+        <a class="navlink" href="/index.html">Home</a>
+        <a class="navlink active" href="/company.html">Company</a>
+        <a class="navlink" href="/projects.html">Projects</a>
+        <a class="navlink" href="/publications.html">Publications</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+        <a class="navlink" href="/contact.html">Contact</a>
       </nav>
     </div>
 
-    <!-- Company overview -->
     <section class="card">
       <div class="inner">
         <div class="kicker">Company</div>
         <h1>CorIgnis Aerospace &amp; Technology</h1>
         <p class="lead">
-          CorIgnus is a deep-tech effort developing foundational systems across propulsion, energy handling, autonomy,
+          CorIgnis is a deep-tech effort developing foundational systems across propulsion, energy handling, autonomy,
           and advanced computing. Our public-facing materials prioritize clarity, testability, and architecture framing,
           while avoiding sensitive implementation details.
         </p>
@@ -233,14 +236,13 @@
         </div>
 
         <div class="cta">
-          <a class="btn primary" href="projects.html">View project portfolio</a>
-          <a class="btn" href="updates.html">See status &amp; updates</a>
-          <a class="btn" href="contact.html">Contact / request pitch deck</a>
+          <a class="btn primary" href="/projects.html">View project portfolio</a>
+          <a class="btn" href="/updates.html">See status &amp; updates</a>
+          <a class="btn" href="/contact.html">Contact / request pitch deck</a>
         </div>
       </div>
     </section>
 
-    <!-- Founder bio -->
     <section class="card" style="margin-top:14px;">
       <div class="inner">
         <div class="kicker">Founder</div>
@@ -272,8 +274,8 @@
         </div>
 
         <div class="cta">
-          <a class="btn" href="contact.html">Email &amp; LinkedIn</a>
-          <a class="btn" href="publications.html">Public documents</a>
+          <a class="btn" href="/contact.html">Email &amp; LinkedIn</a>
+          <a class="btn" href="/publications.html">Public documents</a>
         </div>
       </div>
     </section>
@@ -281,9 +283,9 @@
     <footer>
       <div>© <span id="y"></span> CorIgnis Aerospace &amp; Technology. All rights reserved.</div>
       <div class="footerlinks">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="/index.html">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/contact.html">Contact</a>
       </div>
     </footer>
   </div>
