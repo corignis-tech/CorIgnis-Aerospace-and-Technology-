@@ -6,9 +6,8 @@
   <title>CorIgnis Aerospace & Technology</title>
   <meta name="description" content="CorIgnis Aerospace & Technology develops deep-tech systems across propulsion, energy, autonomy, and advanced computing—published with disciplined scope and restraint." />
 
-  <!-- Optional: if you already have a site stylesheet, keep it.
-       If this path is wrong, it's fine—the built-in CSS below handles styling. -->
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <!-- FIXED: correct stylesheet path (your repo has assets/css/styles.css) -->
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 
   <style>
     :root{
@@ -20,8 +19,8 @@
       --muted:rgba(255,255,255,0.72);
       --faint:rgba(255,255,255,0.55);
       --line:rgba(255,255,255,0.12);
-      --accent:#7dd3fc;   /* light blue */
-      --accent2:#a78bfa;  /* violet */
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
       --ok:#34d399;
       --warn:#fbbf24;
       --radius:18px;
@@ -210,12 +209,16 @@
 
 <body>
   <div class="wrap">
-    <!-- Top Navigation -->
     <div class="topbar">
-      <a class="brand" href="index.html" aria-label="CorIgnis Home">
-        <img src="assets/images/corignis-logo.png"
-         alt="CorIgnis Aerospace & Technology logo"
-         class="site-logo">
+      <!-- FIXED: root-absolute logo path -->
+      <a class="brand" href="/index.html" aria-label="CorIgnis Home">
+        <img
+          src="/assets/images/corignis-logo.png"
+          alt="CorIgnis Aerospace & Technology logo"
+          class="site-logo"
+          loading="eager"
+          onerror="this.style.display='none';"
+        >
         <div class="name">
           <strong>CorIgnis Aerospace &amp; Technology</strong>
           <span>Deep-tech systems • disciplined scope • public-facing restraint</span>
@@ -223,16 +226,15 @@
       </a>
 
       <nav aria-label="Primary navigation">
-        <a class="navlink" href="index.html">Home</a>
-        <a class="navlink" href="company.html">Company</a>
-        <a class="navlink" href="projects.html">Projects</a>
-        <a class="navlink" href="publications.html">Publications</a>
-        <a class="navlink" href="updates.html">Updates</a>
-        <a class="navlink" href="contact.html">Contact</a>
+        <a class="navlink" href="/index.html">Home</a>
+        <a class="navlink" href="/company.html">Company</a>
+        <a class="navlink" href="/projects.html">Projects</a>
+        <a class="navlink" href="/publications.html">Publications</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+        <a class="navlink" href="/contact.html">Contact</a>
       </nav>
     </div>
 
-    <!-- Hero / Cover -->
     <section class="hero">
       <div class="card">
         <div class="inner">
@@ -253,9 +255,9 @@
           </div>
 
           <div class="cta">
-            <a class="btn primary" href="projects.html">View project portfolio</a>
-            <a class="btn secondary" href="publications.html">Read publications</a>
-            <a class="btn" href="contact.html">Contact / pitch deck request</a>
+            <a class="btn primary" href="/projects.html">View project portfolio</a>
+            <a class="btn secondary" href="/publications.html">Read publications</a>
+            <a class="btn" href="/contact.html">Contact / pitch deck request</a>
           </div>
 
           <div class="note">
@@ -265,7 +267,6 @@
         </div>
       </div>
 
-      <!-- Right column: grant/investor safe panels -->
       <div class="sideStack">
         <div class="mini">
           <h3>For grants &amp; funding reviewers</h3>
@@ -291,15 +292,14 @@
         <div class="mini">
           <h3>Quick links</h3>
           <ul>
-            <li><a href="projects.html">Project tiers &amp; portfolio</a></li>
-            <li><a href="updates.html">Status &amp; updates</a></li>
-            <li><a href="contact.html">Contact + pitch deck request</a></li>
+            <li><a href="/projects.html">Project tiers &amp; portfolio</a></li>
+            <li><a href="/updates.html">Status &amp; updates</a></li>
+            <li><a href="/contact.html">Contact + pitch deck request</a></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- What we do: stable domains (not “we built X”) -->
     <section class="grid" aria-label="Capability domains">
       <div class="tile">
         <h4>Propulsion &amp; Energy</h4>
@@ -324,7 +324,6 @@
       </div>
     </section>
 
-    <!-- Founder bio preview (short) -->
     <section class="card" style="margin-top:14px;">
       <div class="inner">
         <div class="kicker">Founder</div>
@@ -335,8 +334,8 @@
           credible peer, grant, and stakeholder evaluation.
         </p>
         <div class="cta" style="margin-top:14px;">
-          <a class="btn" href="company.html">Read company &amp; founder bio</a>
-          <a class="btn" href="contact.html">Connect on LinkedIn / email</a>
+          <a class="btn" href="/company.html">Read company &amp; founder bio</a>
+          <a class="btn" href="/contact.html">Connect on LinkedIn / email</a>
         </div>
       </div>
     </section>
@@ -344,9 +343,9 @@
     <footer>
       <div>© <span id="y"></span> CorIgnis Aerospace &amp; Technology. All rights reserved.</div>
       <div class="footerlinks">
-        <a href="publications.html">Publications</a>
-        <a href="updates.html">Updates</a>
-        <a href="contact.html">Contact</a>
+        <a href="/publications.html">Publications</a>
+        <a href="/updates.html">Updates</a>
+        <a href="/contact.html">Contact</a>
       </div>
     </footer>
   </div>
