@@ -1,0 +1,26 @@
+{
+  "site": {
+    "updated_utc": "2026-01-13T00:00:00Z",
+    "timezone_note": "Dates shown are YYYY-MM (public cadence)."
+  },
+  "updates": [
+    {
+      "date": "2026-01",
+      "title": "Website deployed (Cloudflare Pages + custom domain)",
+      "summary": "Public site established as a stable reference point for grants, peers, and early stakeholders. Initial pages include company overview, portfolio tiering, and publications routing.",
+      "tags": ["Infrastructure", "External visibility"]
+    },
+    {
+      "date": "2026-01",
+      "title": "Portfolio organized into tiered structure",
+      "summary": "Public project portfolio structured to reflect focus sequencing and milestone gating, clarifying near-term versus long-horizon work.",
+      "tags": ["Portfolio", "Grant-safe framing"]
+    },
+    {
+      "date": "2026-01",
+      "title": "Publications pipeline established",
+      "summary": "Document routing standardized (PDFs hosted under /docs) with consistent disclaimers and an intent to version public releases conservatively.",
+      "tags": ["Publications", "Process"]
+    }
+  ]
+}
