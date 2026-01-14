@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Publications • CorIgnus Aerospace & Technology</title>
+  <title>Publications • CorIgnis Aerospace & Technology</title>
   <meta name="description" content="Architecture notes and public, high-level PDFs from CorIgnis Aerospace & Technology." />
 
   <style>
@@ -31,10 +31,29 @@
     }
     a{color:inherit}
     code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+
     .wrap{max-width:var(--max);margin:0 auto;padding:22px;}
-    .topbar{display:flex;justify-content:space-between;gap:14px;padding:10px 0 18px;align-items:center;}
+
+    /* tighten the top spacing */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding:6px 0 10px;   /* was 10px 0 18px */
+      align-items:center;
+    }
+
     .brand{display:flex;gap:12px;text-decoration:none;align-items:center;}
-    .brand img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,0.45));}
+
+    /* bigger logo */
+    .brand img{
+      width:56px;
+      height:56px;
+      object-fit:contain;
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+      display:block;
+    }
+
     .brand .name{display:flex;flex-direction:column;line-height:1.1;}
     .brand .name strong{font-size:14px;letter-spacing:0.2px;}
     .brand .name span{font-size:12px;color:var(--muted);}
@@ -157,7 +176,8 @@
   <div class="wrap">
     <div class="topbar">
       <a class="brand" href="index.html" aria-label="CorIgnis Home">
-        <img src="assets/img/logo.png" alt="CorIgnis logo" />
+        <!-- FIXED PATH -->
+        <img src="assets/images/corignis-logo.png" alt="CorIgnis logo" />
         <div class="name">
           <strong>CorIgnis Aerospace &amp; Technology</strong>
           <span>Public architecture notes • PDFs</span>
