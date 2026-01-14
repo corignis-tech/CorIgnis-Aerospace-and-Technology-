@@ -6,7 +6,7 @@
   <title>CorIgnis Aerospace & Technology</title>
   <meta name="description" content="CorIgnis Aerospace & Technology develops deep-tech systems across propulsion, energy, autonomy, and advanced computing—published with disciplined scope and restraint." />
 
-  <!-- FIXED: correct stylesheet path (your repo has assets/css/styles.css) -->
+  <!-- Correct stylesheet path -->
   <link rel="stylesheet" href="/assets/css/styles.css" />
 
   <style>
@@ -40,23 +40,34 @@
       min-height:100vh;
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px;}
+
+    /* Reduced top whitespace */
+    .wrap{max-width:var(--max); margin:0 auto; padding:14px 22px 22px;}
+
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 0 18px 0;
+      gap:14px;
+
+      /* Reduced header height */
+      padding:6px 0 12px 0;
     }
+
     .brand{
       display:flex; align-items:center; gap:12px; text-decoration:none;
     }
+
+    /* Bigger logo */
     .brand img{
-      width:44px; height:44px; object-fit:contain;
+      width:56px; height:56px; object-fit:contain;
       filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
     }
+
     .brand .name{
       display:flex; flex-direction:column; line-height:1.1;
     }
     .brand .name strong{font-size:14px; letter-spacing:0.2px;}
     .brand .name span{font-size:12px; color:var(--muted);}
+
     nav{
       display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
     }
@@ -81,7 +92,9 @@
       grid-template-columns: 1.15fr 0.85fr;
       gap:18px;
       align-items:stretch;
-      margin-top:8px;
+
+      /* Slightly tighter under-header spacing */
+      margin-top:6px;
     }
     @media (max-width: 920px){
       .hero{grid-template-columns:1fr;}
@@ -210,14 +223,14 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <!-- FIXED: root-absolute logo path -->
       <a class="brand" href="/index.html" aria-label="CorIgnis Home">
+        <!-- Consistent logo path used across site -->
         <img
           src="/assets/images/corignis-logo.png"
-          alt="CorIgnis Aerospace & Technology logo"
-          class="site-logo"
+          alt="CorIgnis Aerospace &amp; Technology logo"
+          width="56"
+          height="56"
           loading="eager"
-          onerror="this.style.display='none';"
         >
         <div class="name">
           <strong>CorIgnis Aerospace &amp; Technology</strong>
