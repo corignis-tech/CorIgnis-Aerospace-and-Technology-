@@ -31,19 +31,56 @@
     }
     a{color:inherit}
     .wrap{max-width:var(--max);margin:0 auto;padding:22px;}
-    .topbar{display:flex;justify-content:space-between;gap:14px;padding:10px 0 18px;}
-    .brand{display:flex;gap:12px;text-decoration:none;align-items:center;}
-    .brand img{width:44px;height:44px;object-fit:contain;}
+
+    /* tighter top spacing + align like other pages */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding:6px 0 10px; /* was 10px 0 18px */
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      text-decoration:none;
+      align-items:center;
+    }
+
+    /* bigger logo + more consistent rendering */
+    .brand img{
+      width:56px;              /* was 44px */
+      height:56px;             /* was 44px */
+      object-fit:contain;
+      display:block;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+    }
+
     .brand strong{font-size:14px;}
-    nav{display:flex;gap:10px;flex-wrap:wrap;}
+
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
     .navlink{
       font-size:13px;
       color:var(--muted);
       padding:10px 12px;
       border-radius:999px;
       text-decoration:none;
+      transition: all 160ms ease;
+      border: 1px solid transparent;
+      background: rgba(255,255,255,0.02);
     }
-    .navlink.active{color:var(--text);}
+    .navlink:hover{
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+    .navlink.active{
+      color:var(--text);
+      border-color: rgba(125,211,252,0.35);
+      background: rgba(125,211,252,0.10);
+    }
+
     .card{
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -53,8 +90,13 @@
     .inner{padding:22px;}
     h1{margin:0 0 10px;font-size:32px;}
     .lead{color:var(--muted);font-size:15px;max-width:90ch;}
+
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
-    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr}
+      nav{justify-content:flex-start;}
+    }
+
     .tile{
       border:1px solid var(--line);
       border-radius:16px;
@@ -69,7 +111,12 @@
       text-decoration:none;
       font-size:13px;
       margin-right:8px;
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      transition: all 160ms ease;
     }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,0.07);}
+
     textarea,input,select{
       width:100%;
       margin-top:6px;
@@ -79,6 +126,7 @@
       background:rgba(0,0,0,0.25);
       color:var(--text);
     }
+
     footer{
       margin-top:24px;
       font-size:12px;
@@ -88,7 +136,10 @@
       display:flex;
       justify-content:space-between;
       flex-wrap:wrap;
+      gap:10px;
     }
+    footer a{color:var(--faint); text-decoration:none;}
+    footer a:hover{color:var(--text); text-decoration:underline;}
   </style>
 </head>
 
@@ -96,11 +147,12 @@
 <div class="wrap">
 
   <div class="topbar">
-    <a class="brand" href="index.html">
-      <img src="assets/img/logo.png" alt="CorIgnis logo" />
-      <strong>CorIgnis Aerospace & Technology</strong>
+    <a class="brand" href="index.html" aria-label="CorIgnis Home">
+      <!-- FIXED PATH -->
+      <img src="assets/images/corignis-logo.png" alt="CorIgnis logo" />
+      <strong>CorIgnis Aerospace &amp; Technology</strong>
     </a>
-    <nav>
+    <nav aria-label="Primary navigation">
       <a class="navlink" href="index.html">Home</a>
       <a class="navlink" href="company.html">Company</a>
       <a class="navlink" href="projects.html">Projects</a>
@@ -131,11 +183,11 @@
         Email
       </a>
 
-      <a class="btn" href="https://www.linkedin.com/company/corignis-aerospace-and-technology-llc/" target="_blank">
+      <a class="btn" href="https://www.linkedin.com/company/corignis-aerospace-and-technology-llc/" target="_blank" rel="noopener noreferrer">
         Company LinkedIn
       </a>
 
-      <a class="btn" href="https://www.linkedin.com/in/giovanni-german/" target="_blank">
+      <a class="btn" href="https://www.linkedin.com/in/giovanni-german/" target="_blank" rel="noopener noreferrer">
         Founder LinkedIn
       </a>
     </div>
@@ -170,9 +222,9 @@
   </section>
 
   <footer>
-    <div>© <span id="y"></span> CorIgnis Aerospace & Technology</div>
+    <div>© <span id="y"></span> CorIgnis Aerospace &amp; Technology</div>
     <div>
-      <a href="https://www.linkedin.com/company/corignis-aerospace-and-technology-llc/" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/company/corignis-aerospace-and-technology-llc/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
 
