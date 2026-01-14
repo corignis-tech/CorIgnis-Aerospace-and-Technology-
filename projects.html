@@ -6,7 +6,8 @@
   <title>Projects • CorIgnis Aerospace & Technology</title>
   <meta name="description" content="CorIgnis project portfolio organized by development tiers: core technologies, near-term applied systems, expansion and infrastructure, and internal R&D." />
 
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <!-- IMPORTANT: your repo uses assets/css/styles.css (not site.css) -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
     :root{
@@ -37,14 +38,18 @@
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:22px;}
+
+    /* tighten top spacing */
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 0 18px 0;
+      gap:14px; padding:6px 0 10px 0;
     }
+
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
     .brand img{
-      width:44px; height:44px; object-fit:contain;
+      width:56px; height:56px; object-fit:contain;   /* bigger logo */
       filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+      display:block;
     }
     .brand .name{display:flex; flex-direction:column; line-height:1.1;}
     .brand .name strong{font-size:14px; letter-spacing:0.2px;}
@@ -152,7 +157,8 @@
     <!-- Top Navigation -->
     <div class="topbar">
       <a class="brand" href="index.html" aria-label="CorIgnis Home">
-        <img src="assets/img/logo.png" alt="CorIgnis logo" />
+        <!-- FIXED PATH -->
+        <img src="assets/images/corignis-logo.png" alt="CorIgnis logo" />
         <div class="name">
           <strong>CorIgnis Aerospace &amp; Technology</strong>
           <span>Project portfolio • tiered roadmap framing</span>
